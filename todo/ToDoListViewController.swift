@@ -12,8 +12,15 @@ class ToDoListViewController: UITableViewController {
 
     var items = ["First item", "Second Item", "Third Item"]
     
+    let defaults = UserDefaults.standard
+    let ITEM_KEY = "ITEM_KEY"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String )
+        if let data = defaults.array(forKey: ITEM_KEY) as? [String] {
+            items = data
+        }
     }
     
     // MARK: - Table view data source
@@ -48,6 +55,7 @@ class ToDoListViewController: UITableViewController {
             if let text = textField.text {
                 self.items.append(text)
                 print("Success!")
+                self.defaults.set(self.items, forKey: self.ITEM_KEY)
                 self.tableView.reloadData()
             }
             
