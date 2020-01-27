@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoListViewController: UITableViewController {
 
     var items = [Item]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let dataFIlePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
     
@@ -45,6 +47,13 @@ class ToDoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        context.delete(items[indexPath.row])
+        items.remove(at: indexPath.row)
+        saveItem()
+    }
+
+    
     // MARK: - Action
     
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -52,8 +61,9 @@ class ToDoListViewController: UITableViewController {
         let alert = UIAlertController(title: "Add New ToDo Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             if let text = textField.text {
-                let newItem = Item()
+                let newItem = Item(context: self.context)
                 newItem.title = text
+                newItem.checked = false
                 self.items.append(newItem)
                 print("Success!")
                 self.saveItem()
@@ -71,11 +81,8 @@ class ToDoListViewController: UITableViewController {
     // MARK: - Custome Function
     
     func saveItem() {
-        let encoder = PropertyListEncoder()
-        
         do {
-            let data = try encoder.encode(items)
-            try data.write(to: dataFIlePath!)
+            try context.save()
         } catch {
             print("Error in saving item : \(error)")
         }
@@ -84,13 +91,13 @@ class ToDoListViewController: UITableViewController {
     }
     
     func loadItem() {
-        if let data = try? Data(contentsOf: dataFIlePath!) {
-            let decoder = PropertyListDecoder()
-            do {
-                items = try decoder.decode([Item].self, from: data)
-            } catch {
-                print("Error in load item : \(error)")
-            }
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        
+        do {
+            items = try context.fetch(request)
+        } catch {
+            print("Error in load item : \(error)")
         }
         
         self.tableView.reloadData()
