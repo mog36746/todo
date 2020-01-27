@@ -17,15 +17,12 @@ class ToDoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String )
-//        if let data = defaults.array(forKey: ITEM_KEY) as? [String] {
-//            items = data
-//        }
-        
         loadItem()
         
     }
     
     // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -60,7 +57,6 @@ class ToDoListViewController: UITableViewController {
                 self.items.append(newItem)
                 print("Success!")
                 self.saveItem()
-
             }
             
         }
@@ -96,7 +92,6 @@ class ToDoListViewController: UITableViewController {
                 print("Error in load item : \(error)")
             }
         }
-
         
         self.tableView.reloadData()
     }
