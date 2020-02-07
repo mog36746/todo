@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		042ECA0923DF524000F39E7D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 042ECA0723DF524000F39E7D /* DataModel.xcdatamodeld */; };
+		0493B61423ED94C500548719 /* CategoryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493B61323ED94C500548719 /* CategoryItemViewController.swift */; };
 		04B8AEBA23DE085000327947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8AEB923DE085000327947 /* AppDelegate.swift */; };
 		04B8AEBC23DE085000327947 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8AEBB23DE085000327947 /* SceneDelegate.swift */; };
-		04B8AEBE23DE085000327947 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8AEBD23DE085000327947 /* ToDoListViewController.swift */; };
+		04B8AEBE23DE085000327947 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8AEBD23DE085000327947 /* ItemListViewController.swift */; };
 		04B8AEC123DE085000327947 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B8AEBF23DE085000327947 /* Main.storyboard */; };
 		04B8AEC323DE085400327947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B8AEC223DE085400327947 /* Assets.xcassets */; };
 		04B8AEC623DE085400327947 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B8AEC423DE085400327947 /* LaunchScreen.storyboard */; };
@@ -18,10 +19,11 @@
 
 /* Begin PBXFileReference section */
 		042ECA0823DF524000F39E7D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		0493B61323ED94C500548719 /* CategoryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewController.swift; sourceTree = "<group>"; };
 		04B8AEB623DE085000327947 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B8AEB923DE085000327947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B8AEBB23DE085000327947 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04B8AEBD23DE085000327947 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		04B8AEBD23DE085000327947 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		04B8AEC023DE085000327947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04B8AEC223DE085400327947 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B8AEC523DE085400327947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +98,8 @@
 		04B8AED323DE239A00327947 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				04B8AEBD23DE085000327947 /* ToDoListViewController.swift */,
+				04B8AEBD23DE085000327947 /* ItemListViewController.swift */,
+				0493B61323ED94C500548719 /* CategoryItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -182,7 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				042ECA0923DF524000F39E7D /* DataModel.xcdatamodeld in Sources */,
-				04B8AEBE23DE085000327947 /* ToDoListViewController.swift in Sources */,
+				04B8AEBE23DE085000327947 /* ItemListViewController.swift in Sources */,
+				0493B61423ED94C500548719 /* CategoryItemViewController.swift in Sources */,
 				04B8AEBA23DE085000327947 /* AppDelegate.swift in Sources */,
 				04B8AEBC23DE085000327947 /* SceneDelegate.swift in Sources */,
 			);
